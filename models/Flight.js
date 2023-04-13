@@ -13,9 +13,9 @@ const flightSchema = mongoose.Schema({
   },
   departs: {
     type: Date,
-    default: Date.now,
+    // default: Date.now,
   },
-}, {timestamp: true});
+}, {timestamps: true});
 
-const Flight = mongoose.model('Flight', flightSchema)
-module.export = Flight
+
+module.exports = mongoose.model("Flight", flightSchema);
