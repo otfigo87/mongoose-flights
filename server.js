@@ -46,6 +46,10 @@ app.get("/flights/:id", (req, res) => {
     .catch(error => console.log(error))
 })
 
+app.get("*", (req, res) => {
+    res.render('NotFound')
+})
+
 
 
 app.listen(port, (req,res) => {
