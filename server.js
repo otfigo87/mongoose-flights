@@ -34,7 +34,7 @@ app.post('/flights', (req, res) => {
     console.log(req.body)
     Flight.create(req.body)
     .then(flight => {
-        console.log(flight)
+        // console.log(flight)
         res.redirect('/flights')
     })
     .then(error => console.log(error))
