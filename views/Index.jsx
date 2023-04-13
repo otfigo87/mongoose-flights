@@ -4,20 +4,24 @@ const Index = ({flights}) => {
     return (
       <div>
         <nav>
-          <a href="/flights/new">Add New Flight</a>
-        </nav>
-        <h1>Flight Index Page</h1>
-        <ul>
-          {flights.map((flight) => (
-            <li key={flight._id}>
-              <div>
-                <h3>{flight.airline}</h3>
-                <h3>{flight.flightNo}</h3>
-                <h3>{flight.departs}</h3>
-              </div>
+          <ul>
+            <li>
+              <a href="/">Home page</a>
             </li>
-          ))}
-        </ul>
+            <li>
+              <a href="/flights/new">Add New Flight</a>
+            </li>
+          </ul>
+        </nav>
+        <h2>Flights Index Page</h2>
+        {flights.map((flight) => (
+          <div key={flight._id}>
+            <h3>Airline: {flight.airline}</h3>
+            <h3>Flight Number: {flight.flightNo}</h3>
+            <h4>Departs: {new Date(flight.departs).toString()}</h4>
+            <hr />
+          </div>
+        ))}
       </div>
     );
 }

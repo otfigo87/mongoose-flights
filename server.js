@@ -15,11 +15,11 @@ app.use(express.urlencoded({ extended: false }));
 
 //routes
 app.get("/", (req, res) => {
-    res.send("Home Page")
+    res.render('Home')
 })
 
 app.get('/flights', (req, res) => {
-   Flight.find()
+   Flight.find().sort("depart")
    .then(list => {
     res.render('Index', {flights: list})
    })
@@ -40,13 +40,11 @@ app.post('/flights', (req, res) => {
     .then(error => console.log(error))
 })
 
-
-
-
-
-
-
-
+app.get("/flights/:id", (req, res) => {
+    Flight.find({airline: req.params.id})
+    .then(flights => res.render('Index', {flights:flights}))
+    .catch(error => console.log(error))
+})
 
 
 
